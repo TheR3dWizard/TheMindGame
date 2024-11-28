@@ -35,3 +35,6 @@ class Session:
 
     def getId(self):
         return self.id
+    
+    def exportSession(self):
+        return {'id':str(self.id),'owner':str(self.owner.id),'players':[str(player.id) for player in self.players]}

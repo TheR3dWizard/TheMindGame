@@ -31,6 +31,12 @@ def start_session():
     session.start()
     return 'Session started'    
 
+@app.route('session/view',methods=['POST'])
+def view_session():
+    body = request.get_json()
+    session = sessions[body['session']]
+    return session.exportSession()
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=4160)
